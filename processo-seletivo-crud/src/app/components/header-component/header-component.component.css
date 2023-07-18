@@ -1,0 +1,14 @@
+#meu-nome{
+    color: #000000;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.imagem_empresa{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}

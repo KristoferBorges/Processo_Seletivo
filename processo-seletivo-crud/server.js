@@ -1,19 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const connection = require('./db'); // Importe o arquivo de conexão
+const cors = require('cors'); // Importe o pacote cors
 
 const app = express();
-const port = 4200; // Escolha a porta que desejar
+const port = 3000; // Escolha a porta que desejar
 
 // Configurar o middleware para interpretar o corpo das requisições
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 // Definir as rotas para a REST API
 app.get('/funcionarios', (req, res) => {
   // Consulta SQL para obter todos os funcionários
-  const sql = 'SELECT * FROM funcionarios';
-
+  const sql = 'SELECT * FROM funcionario';
+  
   // Executar a consulta no banco de dados
   connection.query(sql, (err, result) => {
     if (err) {

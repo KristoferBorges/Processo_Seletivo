@@ -20,6 +20,7 @@ export class TabelaComponent implements OnInit{
     this.funcionarioService.obterFuncionarios().subscribe(
       (data) => {
         this.funcionarios = data;
+        console.log('Funcionários no componente:', this.funcionarios);
       },
       (error) => {
         console.error('Erro ao obter os funcionários:', error);

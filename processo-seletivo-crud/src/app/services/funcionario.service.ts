@@ -7,7 +7,7 @@ import { Funcionario } from '../models/funcionario.model'
   providedIn: 'root'
 })
 export class FuncionarioService {
-  private baseUrl = 'http://localhost:4200';
+  private baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
   
@@ -18,7 +18,7 @@ export class FuncionarioService {
 
   // Método para obter um funcionário por ID
   obterFuncionarioPorId(id: number): Observable<Funcionario> {
-    return this.http.get<Funcionario>(`${this.baseUrl}/funcionarios/${id}`);
+    return this.http.get<Funcionario>(`${this.baseUrl}/funcionarios${id}`);
   }
 
   // Método para criar um novo funcionário
@@ -28,11 +28,11 @@ export class FuncionarioService {
 
   // Método para atualizar um funcionário existente
   atualizarFuncionario(funcionario: Funcionario): Observable<Funcionario> {
-    return this.http.put<Funcionario>(`${this.baseUrl}/funcionarios/${funcionario.idfuncionario}`, funcionario);
+    return this.http.put<Funcionario>(`${this.baseUrl}/funcionarios${funcionario.idfuncionario}`, funcionario);
   }
 
   // Método para excluir um funcionário
   excluirFuncionario(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/funcionarios/${id}`);
+    return this.http.delete(`${this.baseUrl}/funcionarios${id}`);
   }
 }

@@ -9,6 +9,8 @@ import { EventosComponent } from './components/eventos/eventos.component';
 import { TabelaComponent } from './components/tabela/tabela.component';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
+import { FuncionarioService } from './services/funcionario.service';
+import { EnderecoService } from './services/endereco.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { TwoWayBindingComponent } from './components/two-way-binding/two-way-bin
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [FuncionarioService, EnderecoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

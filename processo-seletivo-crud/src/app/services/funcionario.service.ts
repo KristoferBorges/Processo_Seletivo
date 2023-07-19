@@ -8,7 +8,7 @@ import { Funcionario } from '../models/funcionario.model'
 })
 export class FuncionarioService {
   private baseUrl = 'http://localhost:3000';
-
+  
   constructor(private http: HttpClient) {}
   
   // Método para obter todos os funcionários
@@ -33,6 +33,6 @@ export class FuncionarioService {
 
   // Método para excluir um funcionário
   excluirFuncionario(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/funcionarios${id}`);
+    return this.http.delete(`${this.baseUrl}/funcionarios/${id}`);
   }
 }

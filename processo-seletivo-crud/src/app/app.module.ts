@@ -11,6 +11,8 @@ import { PipesComponent } from './components/pipes/pipes.component';
 import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
 import { FuncionarioService } from './services/funcionario.service';
 import { EnderecoService } from './services/endereco.service';
+import { CommonModule } from '@angular/common';
+import { FormatarDataPipe } from './components/pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -19,15 +21,17 @@ import { EnderecoService } from './services/endereco.service';
     EventosComponent,
     TabelaComponent,
     PipesComponent,
-    TwoWayBindingComponent
+    TwoWayBindingComponent,
+    FormatarDataPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    CommonModule,
   ],
-  providers: [FuncionarioService, EnderecoService],
+  providers: [FuncionarioService, EnderecoService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

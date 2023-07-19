@@ -4,20 +4,26 @@
     <tr>
         <th>ID</th>
         <th>Nome</th>
-        <th>Idade</th>  
+        <th>Nascimento</th>  
         <th>Email</th> 
         <th>Cargo</th>
         <th>Salário</th>
+        <th>Ativo</th>
+        <th>Admissão</th>
+        <th>Demissão</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let funcionario of funcionarios">
         <td>{{ funcionario.idfuncionario }}</td>
         <td>{{ funcionario.nome }}</td>
-        <td>{{ funcionario.idade }}</td>
+        <td>{{ funcionario.nascimento | formatarData }}</td>
         <td>{{ funcionario.email }}</td>
         <td>{{ funcionario.cargo }}</td>
-        <td>{{ funcionario.salario }}</td>
+        <td>{{ funcionario.salario | currency:'BRL':'symbol': '1.2-2'}}</td>
+        <td>{{ funcionario.ativo }}</td>
+        <td>{{ funcionario.dataAdmissao | formatarData }}</td>
+        <td>{{ funcionario.dataDemissao | formatarData }}</td>
       </tr>
     </tbody>
 </table>

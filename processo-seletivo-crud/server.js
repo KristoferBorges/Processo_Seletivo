@@ -60,8 +60,8 @@ app.post('/funcionarios', (req, res) => {
   const novoFuncionario = req.body;
 
   // Montar a consulta SQL para inserção do novo funcionário
-  const sql = `INSERT INTO funcionarios (nome, idade, email, cargo, salario, dataAdmissao, dataDemissao, ativo) 
-               VALUES ('Maria', '54', 'maria@gmail.com', 'Psicóloga', '3450', '18/07/2023', '00/00/0000', 'Sim')`;
+  const sql = `INSERT INTO funcionarios (nome, idade, email, cargo, salario, ativo) 
+               VALUES ('Maria', '54', 'maria@gmail.com', 'Psicóloga', '3450', 'Sim')`;
 
   // Executar a consulta SQL para inserir o novo funcionário
   connection.query(sql, [

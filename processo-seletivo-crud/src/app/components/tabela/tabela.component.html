@@ -1,4 +1,23 @@
-<h3 id="titulo_funcionarios">Funcionários Cadastrados</h3>
-<ul>
-    <li *ngFor="let funcionario of funcionarios">Nome: {{funcionario.nome}} | Idade {{funcionario.age}}</li>
-</ul>
+<h1 id="resultado">LISTAGEM DE FUNCIONÁRIOS</h1> 
+<table class="table"> 
+    <thead> 
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Idade</th>  
+        <th>Email</th> 
+        <th>Cargo</th>
+        <th>Salário</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let funcionario of funcionarios">
+        <td>{{ funcionario.idfuncionario }}</td>
+        <td>{{ funcionario.nome }}</td>
+        <td>{{ funcionario.idade }}</td>
+        <td>{{ funcionario.email }}</td>
+        <td>{{ funcionario.cargo }}</td>
+        <td>{{ funcionario.salario }}</td>
+      </tr>
+    </tbody>
+</table>

@@ -1,16 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FuncionarioService } from 'src/app/services/funcionario.service';
+import { Funcionario } from 'src/app/models/funcionario.model';
 
 @Component({
   selector: 'app-tabela',
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.css']
 })
-export class TabelaComponent {
-  funcionarios = [
-    {nome: "Ronaldo", age: 12},
-    {nome: "Vasco", age: 47},
-    {nome: "Tatiane", age: 41},
-    {nome: "Gabriela", age: 14},
-    {nome: "Katrina", age: 20},
-  ]
+export class TabelaComponent implements OnInit{
+  funcionarios: Funcionario[] = [];
+
+  constructor(private funcionarioService: FuncionarioService) {}
+  
+  ngOnInit() {
+    this.obterFuncionarios();
+  }
+
+  obterFuncionarios() {
+    this.funcionarioService.obterFuncionarios().subscribe(
+      (data) => {
+        this.funcionarios = data;
+      },
+      (error) => {
+        console.error('Erro ao obter os funcionários:', error);
+      }
+    );
+  }
 }

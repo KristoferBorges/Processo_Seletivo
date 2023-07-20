@@ -30,49 +30,24 @@ app.get('/funcionarios', (req, res) => {
   });
 });
 
-app.get('/funcionarios/:id', (req, res) => {
-  const idFuncionario = req.params.id;
-  // Consulta SQL para obter um funcionário específico pelo ID
-  const sql = 'SELECT * FROM funcionarios WHERE idfuncionario = ?';
-
-  // Executar a consulta no banco de dados com o ID fornecido como parâmetro
-  connection.query(sql, [idFuncionario], (err, result) => {
-    if (err) {
-      // Se ocorrer algum erro na consulta, envie uma resposta com o status de erro
-      console.error('Erro ao obter funcionário:', err);
-      res.status(500).json({ error: 'Erro ao obter funcionário' });
-    } else {
-      // Se a consulta for bem-sucedida, envie o resultado em JSON
-      console.log('Funcionário obtido com sucesso:', result);
-      if (result.length === 0) {
-        // Se não encontrar um funcionário com o ID fornecido, envie um status 404 - Not Found
-        res.status(404).json({ message: 'Funcionário não encontrado' });
-      } else {
-        // Se encontrar o funcionário, envie o resultado em JSON
-        res.status(200).json(result[0]);
-      }
-    }
-  });
-});
-
 app.post('/funcionarios', (req, res) => {
   // Capturar os dados fornecidos na requisição POST
   const novoFuncionario = req.body;
 
   // Montar a consulta SQL para inserção do novo funcionário
-  const sql = `INSERT INTO funcionarios (nome, idade, email, cargo, salario, ativo) 
-               VALUES ('Maria', '54', 'maria@gmail.com', 'Psicóloga', '3450', 'Sim')`;
+  const sql = `INSERT INTO funcionario (nome, nascimento, email, cargo, salario, ativo, dataAdmissao, dataDemissao) 
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
 
   // Executar a consulta SQL para inserir o novo funcionário
   connection.query(sql, [
     novoFuncionario.nome,
-    novoFuncionario.idade,
+    novoFuncionario.nascimento,
     novoFuncionario.email,
     novoFuncionario.cargo,
     novoFuncionario.salario,
+    novoFuncionario.ativo,
     novoFuncionario.dataAdmissao,
     novoFuncionario.dataDemissao,
-    novoFuncionario.ativo,
   ], (err, result) => {
     if (err) {
       // Se ocorrer algum erro na consulta SQL, envie uma resposta com o status de erro
@@ -91,20 +66,20 @@ app.put('/funcionarios/:id', (req, res) => {
   const dadosFuncionario = req.body; // Dados fornecidos na requisição
 
   // Consulta SQL para atualizar os dados do funcionário com o ID fornecido
-  const sql = 'UPDATE funcionarios SET nome = ?, idade = ?, email = ?, cargo = ?, salario = ?, dataAdmissao = ?, dataDemissao = ?, ativo = ? WHERE idfuncionario = ?';
+  const sql = 'UPDATE funcionario SET nome = ?, nascimento = ?, email = ?, cargo = ?, salario = ?, ativo = ?, dataAdmissao = ?, dataDemissao = ? WHERE idfuncionario = ?';
 
   // Executar a consulta no banco de dados com os dados fornecidos e o ID do funcionário
   connection.query(
     sql,
     [
       dadosFuncionario.nome,
-      dadosFuncionario.idade,
+      dadosFuncionario.nascimento,
       dadosFuncionario.email,
       dadosFuncionario.cargo,
       dadosFuncionario.salario,
+      dadosFuncionario.ativo,
       dadosFuncionario.dataAdmissao,
       dadosFuncionario.dataDemissao,
-      dadosFuncionario.ativo,
       idFuncionario,
     ],
     (err, result) => {
@@ -130,7 +105,7 @@ app.delete('/funcionarios/:id', (req, res) => {
   const idFuncionario = req.params.id;
 
   // Consulta SQL para excluir o funcionário com o ID fornecido
-  const sql = 'DELETE FROM funcionarios WHERE idfuncionario = ?';
+  const sql = 'DELETE FROM funcionario WHERE idfuncionario = ?';
 
   // Executar a consulta no banco de dados com o ID do funcionário
   connection.query(sql, [idFuncionario], (err, result) => {

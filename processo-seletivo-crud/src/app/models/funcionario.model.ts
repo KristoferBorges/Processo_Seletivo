@@ -1,7 +1,3 @@
-export enum AtivoEnum {
-    Sim = 'Sim',
-    Nao = 'Não',
-}
 export interface Funcionario {
     idfuncionario: number;
     nome: string;
@@ -9,7 +5,7 @@ export interface Funcionario {
     email: string;
     cargo: string;
     salario: number;
-    ativo: AtivoEnum;
+    ativo: string;
     dataAdmissao: string;
     dataDemissao: string;
 }

@@ -13,9 +13,9 @@ export class TabelaComponent implements OnInit{
   constructor(private funcionarioService: FuncionarioService) {}
   
   ngOnInit() {
-    this.criarFuncionarioManualmente();
+    // this.criarFuncionarioManualmente();
     // this.alterarFuncionarioManualmente();
-    // this.excluirFuncionario(23);
+    this.excluirFuncionario(58);
     this.obterFuncionarios();
   }
 
@@ -34,15 +34,15 @@ export class TabelaComponent implements OnInit{
   alterarFuncionarioManualmente() {
     // Crie um objeto com os dados do funcionário a ser atualizado
     const funcionarioAtualizado: Funcionario = {
-      idfuncionario: 1, 
-      nome: 'Simone Cardoso',
-      nascimento: '1990-02-21',
-      email: 'simone.tesla@gmail.com',
-      cargo: 'Gerente de Projetos',
-      salario: 9350,
-      ativo: 'Sim',
+      idfuncionario: 66, 
+      nome: 'Simone Sonco',
+      nascimento: '1996-06-21',
+      email: 'simone.sonco@gmail.com',
+      cargo: 'Projetista de Máquinas',
+      salario: 3350,
+      ativo: 'Não',
       dataAdmissao: '2013-04-13',
-      dataDemissao: '0000-00-00', // Se o funcionário ainda não foi demitido
+      dataDemissao: '2020-07-11', // Se o funcionário ainda não foi demitido
       
     };
 
@@ -60,14 +60,14 @@ export class TabelaComponent implements OnInit{
   criarFuncionarioManualmente() {
     // Crie um objeto com os dados do novo funcionário
     const novoFuncionario: Partial<Funcionario> = {
-      nome: 'Sandra Regina',
-      nascimento: '1968-07-21',
-      email: 'sandra.santos@gmail.com',
-      cargo: 'Analista',
-      salario: 1450,
-      ativo: 'Sim',
-      dataAdmissao: '2003-04-10',
-      dataDemissao: '0000-00-00',
+      nome: 'Camila Costa',
+      nascimento: '1995-03-25',
+      email: 'camila.costa@gmail.com',
+      cargo: 'Analista de Marketing Digital',
+      salario: 2600,
+      ativo: 'Não',
+      dataAdmissao: '2019-06-05',
+      dataDemissao: '2023-07-15',
     };
 
     // Chame o serviço para criar o novo funcionário

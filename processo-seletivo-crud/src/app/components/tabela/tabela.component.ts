@@ -13,9 +13,9 @@ export class TabelaComponent implements OnInit{
   constructor(private funcionarioService: FuncionarioService) {}
   
   ngOnInit() {
-    // this.criarFuncionarioManualmente();
+    this.criarFuncionarioManualmente();
     // this.alterarFuncionarioManualmente();
-    this.excluirFuncionario(25);
+    // this.excluirFuncionario(23);
     this.obterFuncionarios();
   }
 
@@ -39,10 +39,11 @@ export class TabelaComponent implements OnInit{
       nascimento: '1990-02-21',
       email: 'simone.tesla@gmail.com',
       cargo: 'Gerente de Projetos',
-      salario: 12150,
+      salario: 9350,
       ativo: 'Sim',
       dataAdmissao: '2013-04-13',
       dataDemissao: '0000-00-00', // Se o funcionário ainda não foi demitido
+      
     };
 
     // Chame o serviço para atualizar o funcionário
@@ -59,14 +60,14 @@ export class TabelaComponent implements OnInit{
   criarFuncionarioManualmente() {
     // Crie um objeto com os dados do novo funcionário
     const novoFuncionario: Partial<Funcionario> = {
-      nome: 'Roberto Santos',
-      nascimento: '1978-06-20',
-      email: 'roberto.santos@gmail.com',
-      cargo: 'Engenheiro de Software',
-      salario: 5200,
-      ativo: 'Não',
-      dataAdmissao: '2002-04-10',
-      dataDemissao: '2021-11-05',
+      nome: 'Sandra Regina',
+      nascimento: '1968-07-21',
+      email: 'sandra.santos@gmail.com',
+      cargo: 'Analista',
+      salario: 1450,
+      ativo: 'Sim',
+      dataAdmissao: '2003-04-10',
+      dataDemissao: '0000-00-00',
     };
 
     // Chame o serviço para criar o novo funcionário

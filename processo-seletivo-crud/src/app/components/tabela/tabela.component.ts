@@ -12,10 +12,11 @@ export class TabelaComponent implements OnInit{
 
   constructor(private funcionarioService: FuncionarioService) {}
   
+  // Realização dos CRUDs no sistema
   ngOnInit() {
     // this.criarFuncionarioManualmente();
     // this.alterarFuncionarioManualmente();
-    this.excluirFuncionario(58);
+    // this.excluirFuncionario(59);
     this.obterFuncionarios();
   }
 
@@ -34,15 +35,15 @@ export class TabelaComponent implements OnInit{
   alterarFuncionarioManualmente() {
     // Crie um objeto com os dados do funcionário a ser atualizado
     const funcionarioAtualizado: Funcionario = {
-      idfuncionario: 66, 
-      nome: 'Simone Sonco',
-      nascimento: '1996-06-21',
-      email: 'simone.sonco@gmail.com',
-      cargo: 'Projetista de Máquinas',
-      salario: 3350,
+      idfuncionario: 78, 
+      nome: 'Fatima Costa',
+      nascimento: '1985-03-25',
+      email: 'fatima.costa@gmail.com',
+      cargo: 'Marketing Digital',
+      salario: 2650,
       ativo: 'Não',
-      dataAdmissao: '2013-04-13',
-      dataDemissao: '2020-07-11', // Se o funcionário ainda não foi demitido
+      dataAdmissao: '2019-06-05',
+      dataDemissao: '2023-07-15', // Se o funcionário ainda não foi demitido
       
     };
 
@@ -60,11 +61,11 @@ export class TabelaComponent implements OnInit{
   criarFuncionarioManualmente() {
     // Crie um objeto com os dados do novo funcionário
     const novoFuncionario: Partial<Funcionario> = {
-      nome: 'Camila Costa',
-      nascimento: '1995-03-25',
-      email: 'camila.costa@gmail.com',
-      cargo: 'Analista de Marketing Digital',
-      salario: 2600,
+      nome: 'Fatima Costa',
+      nascimento: '1985-03-25',
+      email: 'fatima.costa@gmail.com',
+      cargo: 'Marketing Digital',
+      salario: 2650,
       ativo: 'Não',
       dataAdmissao: '2019-06-05',
       dataDemissao: '2023-07-15',

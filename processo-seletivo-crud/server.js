@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const connection = require('./db'); // Importe o arquivo de conexão
-const cors = require('cors'); // Importe o pacote cors
+const connection = require('./db'); 
+const cors = require('cors');
 
 const app = express();
-const port = 3000; // Escolha a porta que desejar
+const port = 3000; 
 
 // Configurar o middleware para interpretar o corpo das requisições
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -84,14 +84,11 @@ app.put('/funcionarios/:id', (req, res) => {
     ],
     (err, result) => {
       if (err) {
-        // Se ocorrer algum erro na consulta, envie uma resposta com o status de erro
         console.error('Erro ao atualizar funcionário:', err);
         res.status(500).json({ error: 'Erro ao atualizar funcionário' });
       } else {
-        // Se a atualização for bem-sucedida, envie uma resposta indicando o sucesso
         console.log('Funcionário atualizado com sucesso:', result.affectedRows);
         if (result.affectedRows === 0) {
-          // Se o ID não for encontrado na tabela, envie um status 404 - Not Found
           res.status(404).json({ message: 'Funcionário não encontrado' });
         } else {
           res.status(200).json({ message: 'Funcionário atualizado com sucesso' });
@@ -110,14 +107,11 @@ app.delete('/funcionarios/:id', (req, res) => {
   // Executar a consulta no banco de dados com o ID do funcionário
   connection.query(sql, [idFuncionario], (err, result) => {
     if (err) {
-      // Se ocorrer algum erro na consulta, envie uma resposta com o status de erro
       console.error('Erro ao excluir funcionário:', err);
       res.status(500).json({ error: 'Erro ao excluir funcionário' });
     } else {
-      // Se a exclusão for bem-sucedida, envie uma resposta indicando o sucesso
       console.log('Funcionário excluído com sucesso:', result.affectedRows);
       if (result.affectedRows === 0) {
-        // Se o ID não for encontrado na tabela, envie um status 404 - Not Found
         res.status(404).json({ message: 'Funcionário não encontrado' });
       } else {
         res.status(200).json({ message: 'Funcionário excluído com sucesso' });
